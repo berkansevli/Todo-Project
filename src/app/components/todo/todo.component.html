@@ -10,7 +10,7 @@
     <li *ngFor="let todo of todos | filter: filterText; let i = index;" class="list-group-item">
       <div class="d-flex justify-content-between align-items-center">
         <div class="content">
-          <strong>{{i + 1}}</strong>) {{todo.title}}
+          <strong>{{i + 1}}</strong>- {{todo.title}}
         </div>
         <div class="buttons">
           <button class="btn btn-danger" (click)="removeTodo(i)">Sil</button>
