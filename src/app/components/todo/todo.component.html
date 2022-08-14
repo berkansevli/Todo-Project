@@ -1,0 +1,21 @@
+<h1 class="display-6">Todo App</h1>
+<div class="d-flex">
+  <input type="text" class="form-control" id="addTodo" placeholder="Add Todo" [(ngModel)]="todo">
+  <button class="btn btn-primary ms-3" (click)="addTodo()">Add</button>
+</div>
+<div class="todos mt-2">
+  <input *ngIf="todos.length > 2" type="text" class="form-control" [(ngModel)]="filterText" placeholder="Search todo">
+  <button *ngIf="todos.length > 0" class="btn btn-danger btn-lg" (click)="removeAllTodos()">Hepsini Sil</button>
+  <ul class="list-group">
+    <li *ngFor="let todo of todos | filter: filterText; let i = index;" class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="content">
+          <strong>{{i + 1}}</strong>) {{todo.title}}
+        </div>
+        <div class="buttons">
+          <button class="btn btn-danger" (click)="removeTodo(i)">Sil</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
